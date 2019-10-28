@@ -22,7 +22,7 @@ function Header() {
           placeholder="Search"
           aria-label="Search"
         />
-        <button className="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <button className="btn btn-outline-light my-2 my-sm-0" type="submit">
           Search
         </button>
       </form>
