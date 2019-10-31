@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "./components/Header";
-import Body from "./components/Body/index";
+import AboutUs from "./components/AboutUs/index";
 
 function App() {
   return (
     <div>
       <Header />
-      <Body />
+      <AboutUs />
     </div>
   );
 }
