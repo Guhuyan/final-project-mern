@@ -1,9 +1,17 @@
 import React, { Component } from "react";
+import API from "../utils/nyTimesAPI";
 import Search from "./Nav";
 
 class HeaderSearch extends Component {
   state = {
+    result: {},
     search: ""
+  };
+
+  searchStocks = query => {
+    API.getArticle(query)
+      .then(res => this.setState({ result: res.data }))
+      .catch(err => console.log(err));
   };
 
   handleSearch = event => {
@@ -15,8 +23,8 @@ class HeaderSearch extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefalt();
-    console.log(event);
+    event.preventDefault();
+    this.searchStocks(this.state.search);
   };
 
   render() {
