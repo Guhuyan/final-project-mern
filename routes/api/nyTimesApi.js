@@ -11,8 +11,8 @@ router.route("/").get(function(req, res) {
   console.log(BASEURL + q + SUBURL + APIKEY);
   axios
     .get(BASEURL + q + SUBURL + APIKEY)
-    .then(function(response) {
-      console.log(response);
+    .then(response => {
+      res.json(response.data.response);
     })
     .catch(function(error) {
       // handle error
