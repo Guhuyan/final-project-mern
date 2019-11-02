@@ -3,6 +3,7 @@ const express = require("express");
 const express = require("express-session");
 
 const mongoose = require("mongoose");
+const axios = require("axios");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
