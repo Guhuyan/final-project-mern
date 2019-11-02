@@ -26,11 +26,11 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Add routes, both API and view
-// app.use(routes);
-app.get("/api/nyt", function(req, res) {
-  let q = req.query.q;
-  res.json({ username: q });
-});
+app.use(routes);
+// app.get("/api/nyt", function(req, res) {
+//   let q = req.query.q;
+//   res.json({ username: q });
+// });
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mernproject");
