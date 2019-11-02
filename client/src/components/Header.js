@@ -1,9 +1,17 @@
 import React, { Component } from "react";
-import Nav from "../Nav";
+import API from "../utils/nyTimesAPI";
+import Search from "./Nav";
 
-class NavSearch extends Component {
+class HeaderSearch extends Component {
   state = {
+    result: {},
     search: ""
+  };
+
+  searchStocks = query => {
+    API.getArticle(query)
+      .then(res => this.setState({ result: res.data }))
+      .catch(err => console.log(err));
   };
 
   handleSearch = event => {
@@ -15,13 +23,13 @@ class NavSearch extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefalt();
-    console.log(event);
+    event.preventDefault();
+    this.searchStocks(this.state.search);
   };
 
   render() {
     return (
-      <Nav
+      <Search
         text={this.state.search}
         handleSearch={this.handleSearch}
         handleSubmit={this.handleSubmit}
@@ -30,4 +38,4 @@ class NavSearch extends Component {
   }
 }
 
-export default NavSearch;
+export default HeaderSearch;
