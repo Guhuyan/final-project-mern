@@ -1,9 +1,8 @@
 require("dotenv").config();
 const express = require("express");
-const express = require("express-session");
+// const expressSession = require("express-session");
 
 const mongoose = require("mongoose");
-const axios = require("axios");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -13,14 +12,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Setting up session
-app.use(
-  session({
-    secret: process.env.EXPRESS_SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true }
-  })
-);
+// app.use(
+//   session({
+//     secret: process.env.EXPRESS_SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true }
+//   })
+// );
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -28,6 +27,10 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+// app.get("/api/nyt", function(req, res) {
+//   let q = req.query.q;
+//   res.json({ username: q });
+// });
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mernproject");
