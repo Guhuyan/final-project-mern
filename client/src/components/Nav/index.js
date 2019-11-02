@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header(props) {
+function Nav(props) {
   return (
     <nav className="navbar navbar-dark bg-dark">
       <a className="navbar-brand">Stock App</a>
@@ -35,4 +35,4 @@ function Header(props) {
     </nav>
   );
 }
-export default Header;
+export default Nav;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Search from "./Nav";
+import Nav from "../Nav";
 
-class HeaderSearch extends Component {
+class NavSearch extends Component {
   state = {
     search: ""
   };
@@ -21,7 +21,7 @@ class HeaderSearch extends Component {
 
   render() {
     return (
-      <Search
+      <Nav
         text={this.state.search}
         handleSearch={this.handleSearch}
         handleSubmit={this.handleSubmit}
@@ -30,4 +30,4 @@ class HeaderSearch extends Component {
   }
 }
 
-export default HeaderSearch;
+export default NavSearch;
