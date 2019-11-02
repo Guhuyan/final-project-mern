@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const myExampleRoutes = require("./myExample");
+const nytRoutes = require("./nyTimesApi");
 
 // Book routes (e.g. /api/example)
-router.use("/example", myExampleRoutes);
+router.use("/nyt", nytRoutes);
 
 module.exports = router;
