@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import API from "../utils/nyTimesAPI";
 import Stock from "../utils/alphAvantageAPI";
+import SYMBOL from "../utils/yahooAPI";
 import Search from "./Nav";
 
 class HeaderSearch extends Component {
   state = {
     result: {},
     search: ""
+  };
+
+  searchSymbol = query => {
+    SYMBOL.getSymbol(query)
+      .then(res => this.setState({ result: res.data }))
+      .catch(err => console.log(err));
   };
 
   searchArticle = query => {
@@ -31,6 +38,7 @@ class HeaderSearch extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.searchSymbol(this.state.search);
     this.searchArticle(this.state.search);
     this.searchStock(this.state.search);
   };
