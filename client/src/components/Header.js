@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/nyTimesAPI";
+import Stock from "../utils/alphAvantageAPI";
 import Search from "./Nav";
 
 class HeaderSearch extends Component {
@@ -8,8 +9,14 @@ class HeaderSearch extends Component {
     search: ""
   };
 
-  searchStocks = query => {
+  searchArticle = query => {
     API.getArticle(query)
+      .then(res => this.setState({ result: res.data }))
+      .catch(err => console.log(err));
+  };
+
+  searchStock = query => {
+    Stock.getStock(query)
       .then(res => this.setState({ result: res.data }))
       .catch(err => console.log(err));
   };
@@ -24,7 +31,8 @@ class HeaderSearch extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.searchStocks(this.state.search);
+    this.searchArticle(this.state.search);
+    this.searchStock(this.state.search);
   };
 
   render() {
