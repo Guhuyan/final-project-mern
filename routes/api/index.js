@@ -1,7 +1,9 @@
 const router = require("express").Router();
+const user = require("./user");
 const nytRoutes = require("./nyTimesApi");
 
-// Book routes (e.g. /api/example)
+// Routes
 router.use("/nyt", nytRoutes);
+router.use("/user", user);
 
 module.exports = router;
