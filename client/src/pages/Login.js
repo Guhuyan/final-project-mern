@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import React from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import Button from "../components/Button";
 import Input from "../components/Input";
-import API from "./utils/API";
+import API from "../utils/API";
 
 class LoginForm extends Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    metadata: ""
   };
 
   handleInputChange = event => {
@@ -18,8 +21,8 @@ class LoginForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.getUserLogin(this.state.recipeSearch)
-      .then(res => this.setState({ recipes: res.data }))
+    API.getUserLogin(this.state.username, this.state.password)
+      .then(res => this.setState({ metadata: res.data }))
       .catch(err => console.log(err));
   };
 
@@ -40,7 +43,7 @@ class LoginForm extends Component {
                   required=""
                   name="username"
                   type="text"
-                  value=""
+                  value={this.state.username}
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -54,7 +57,7 @@ class LoginForm extends Component {
                   required=""
                   name="password"
                   type="password"
-                  value=""
+                  value={this.state.password}
                   onChange={this.handleInputChange}
                 />
               </div>
@@ -74,6 +77,11 @@ class LoginForm extends Component {
         </footer>
       </form>
     );
+  }
+
+  componentDidMount() {
+    this.props.history.push("/dashboard");
+    console.log(this.props.history);
   }
 }
 

@@ -15,6 +15,6 @@ router
   .delete(userController.remove);
 
 // Matches with "/api/user/login"
-// router.route("/login").post(userController.login);
+router.route("/login").post(userController.login);
 
 module.exports = router;
