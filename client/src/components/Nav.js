@@ -9,7 +9,7 @@ function Header(props) {
           className="btn btn-dark btn-outline-light mr-sm-2"
           type="button"
         >
-          Sign Up.
+          Sign Up
         </button>
         <button className="btn btn-dark btn-outline-light" type="button">
           Log In

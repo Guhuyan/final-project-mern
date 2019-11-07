@@ -1,0 +1,14 @@
+.header {
+  min-height: 100px;
+  background: #000000;
+  position: relative;
+}
+
+.header span {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 3px;
+  background: #b8b8b8;
+}
