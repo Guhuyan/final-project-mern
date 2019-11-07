@@ -35,7 +35,6 @@ export default class App extends Component {
         set.backgroundColor = this.setGradientColor(canvas, colors [i]);
         set.borderColor = "white";
         set.borderWidth = 2;
-        hover
       }
     }
     return data;
