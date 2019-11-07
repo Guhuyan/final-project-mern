@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import API from "../utils/nyTimesAPI";
-import Search from "./Nav";
+import API from "../../utils/nyTimesAPI";
+import Search from "../Nav";
+import "./style.css";
 
 class HeaderSearch extends Component {
   state = {
