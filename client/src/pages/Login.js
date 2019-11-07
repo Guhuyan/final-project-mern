@@ -5,6 +5,16 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import API from "../utils/API";
 
+// let history = useHistory();
+// let location = useLocation();
+
+// let { from } = location.state || { from: { pathname: "/" } };
+// let login = () => {
+//   fakeAuth.authenticate(() => {
+//     history.replace(from);
+//   });
+// };
+
 class LoginForm extends Component {
   state = {
     username: "",
