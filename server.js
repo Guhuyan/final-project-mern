@@ -3,23 +3,28 @@ const express = require("express");
 // const expressSession = require("express-session");
 
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Middleware
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-// Setting up session
+// Bodyparser middleware
 app.use(
-  session({
-    secret: process.env.EXPRESS_SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true }
+  bodyParser.urlencoded({
+    extended: false
   })
 );
+app.use(bodyParser.json());
+
+// Setting up session
+// app.use(
+//   session({
+//     secret: process.env.EXPRESS_SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true }
+//   })
+// );
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -32,10 +37,13 @@ app.use(routes);
 //   res.json({ username: q });
 // });
 
-// Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mernproject");
+// Connect to MongoDB
+mongoose
+  .connect(db, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB successfully connected"))
+  .catch(err => console.log(err));
+
+const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 
 // Start the API server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
-});
+app.listen(port, () => console.log(`Server up and running on port ${port} !`));
