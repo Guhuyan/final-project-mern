@@ -8,11 +8,12 @@ import {
   useHistory,
   useLocation
 } from "react-router-dom";
-import Header from "./components/Header";
+import Header from "./components/Nav";
 import AboutUs from "./components/AboutUs";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
+import Graph from "./components/Graph";
 
 function App(props) {
   return (
@@ -25,6 +26,7 @@ function App(props) {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route component={NoMatch} />
         </Switch>
+        <Graph />, document.getElementById("root");
       </div>
     </Router>
   );
