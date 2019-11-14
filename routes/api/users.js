@@ -8,10 +8,6 @@ const validateLoginInput = require("../../validation/login"); // Load login vali
 const User = require("../../models/User"); // Load User model
 const userController = require("../../controllers/userController"); // Load User controller
 
-// Load input validation
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
-
 router.post("/register", (req, res) => {
   // Form validationconst { errors, isValid } = validateRegisterInput(req.body);// Check validation
   if (!isValid) {

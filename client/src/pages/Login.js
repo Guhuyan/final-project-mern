@@ -88,10 +88,10 @@ class LoginForm extends Component {
     );
   }
 
-  componentDidMount() {
-    this.props.history.push("/dashboard");
-    console.log(this.props.history);
-  }
+  // componentDidMount() {
+  //   this.props.history.push("/dashboard");
+  //   console.log(this.props.history);
+  // }
 }
 
 export default LoginForm;
