@@ -59,8 +59,11 @@ export default class Graph extends Component {
         <Line
           options={{
             responsive: true,
-            lineheightAnnotation: {
-              shadow: true
+            lineHeightAnnotation: {
+              shadow: {
+                blur: 2,
+                color: "black"
+              }
             }
           }}
           data={this.getChartData}
