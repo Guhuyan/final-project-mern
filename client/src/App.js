@@ -6,8 +6,8 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
-import Graph from "./components/Graph";
-import Search from "./pages/StockPage";
+// import Graph from "./components/Graph";
+// import Search from "./pages/StockPage";
 
 class App extends Component {
   render() {
