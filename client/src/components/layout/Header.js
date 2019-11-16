@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import API from "../utils/nyTimesAPI";
-import Stock from "../utils/alphAvantageAPI";
-import SYMBOL from "../utils/yahooAPI";
+import API from "../../utils/nyTimesAPI";
+import Stock from "../../utils/alphAvantageAPI";
+import SYMBOL from "../../utils/yahooAPI";
 
 class HeaderSearch extends Component {
   state = {
@@ -50,20 +50,25 @@ class HeaderSearch extends Component {
           Stock App
         </Link>
         <form className="form-inline">
-          <button
+          <Link
+            to="/register"
             className="btn btn-dark btn-outline-light mr-sm-2"
             type="button"
           >
             Sign Up
-          </button>
-          <button className="btn btn-dark btn-outline-light" type="button">
+          </Link>
+          <Link
+            to="/login"
+            className="btn btn-dark btn-outline-light"
+            type="button"
+          >
             Log In
-          </button>
+          </Link>
         </form>
         <form className="form-inline">
           <input
             onChange={this.handleSearch}
-            value={props.value}
+            value={this.state.search}
             name="search"
             type="text"
             className="form-control mr-sm-2"
