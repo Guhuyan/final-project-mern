@@ -1,6 +1,5 @@
 const axios = require("axios");
 const router = require("express").Router();
-// const Search = require("./searchBySymbol");
 require("dotenv");
 
 router.get("/", function(req, res) {
@@ -25,18 +24,11 @@ router.get("/", function(req, res) {
       let symbol = response.data.ResultSet.Result[0].symbol;
       console.log(symbol);
       return searchSymbol(symbol);
-      // let company = await Search(symbol);
-      // console.log("The following is the company.");
-      // console.log(company);
-      // router.route("/").get(searchSymbol(req, res));
-      // res.json(response.data);
     })
     .then(response => {
-      //console.log(response);
       res.json(response);
     })
     .catch(function(error) {
-      // handle error
       console.log(error);
     });
 });
@@ -61,14 +53,10 @@ function searchSymbol(req, res) {
         configs
       )
       .then(response => {
-        //console.log(response.data);
         return response.data;
-        //res.json(response.data);
-        // res.send(response);
       })
       .catch(error => {
         return error;
-        // res.send(error);
       });
   }
 }
