@@ -13,6 +13,7 @@ import AboutUs from "./components/AboutUs";
 import Login from "./pages/Login";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
+import Search from "./pages/StockPage";
 
 function App(props) {
   return (
@@ -23,6 +24,7 @@ function App(props) {
           <Route exact path="/" component={AboutUs} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/search" component={Search} />
           <Route component={NoMatch} />
         </Switch>
       </div>

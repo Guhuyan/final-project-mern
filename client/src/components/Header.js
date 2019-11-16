@@ -40,7 +40,7 @@ class HeaderSearch extends Component {
     event.preventDefault();
     this.searchSymbol(this.state.search);
     this.searchArticle(this.state.search);
-    this.searchStock(this.state.search);
+    // this.searchStock(this.state.search);
   };
 
   render() {
