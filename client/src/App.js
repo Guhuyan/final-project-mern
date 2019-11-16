@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "./components/Header";
+import Header from "./components/layout/Header";
 import AboutUs from "./components/AboutUs";
-import Login from "./pages/Login";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
 import Graph from "./components/Graph";
@@ -15,6 +16,7 @@ class App extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={AboutUs} />
+            <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route component={NoMatch} />
