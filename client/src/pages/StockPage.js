@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
+import Header from "../components/layout/Header";
 
 function pageRender(props) {
   return (

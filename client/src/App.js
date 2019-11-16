@@ -6,7 +6,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
-import Search from "./pages/StockPage";
+// import Search from "./pages/StockPage";
 
 class App extends Component {
   render() {
