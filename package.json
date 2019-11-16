@@ -17,6 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.2",
+    "eslint": "^6.6.0",
     "nodemon": "^1.19.4"
   },
   "dependencies": {
@@ -32,6 +33,7 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.7.9",
+    "npm": "^6.13.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "path": "^0.12.7",
