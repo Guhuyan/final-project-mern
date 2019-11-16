@@ -1,8 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import API from "../utils/nyTimesAPI";
 import Stock from "../utils/alphAvantageAPI";
 import SYMBOL from "../utils/yahooAPI";
-import Search from "./Nav";
 
 class HeaderSearch extends Component {
   state = {
@@ -45,11 +45,39 @@ class HeaderSearch extends Component {
 
   render() {
     return (
-      <Search
-        text={this.state.search}
-        handleSearch={this.handleSearch}
-        handleSubmit={this.handleSubmit}
-      />
+      <nav className="navbar navbar-dark bg-dark">
+        <Link to="/" className="navbar-brand">
+          Stock App
+        </Link>
+        <form className="form-inline">
+          <button
+            className="btn btn-dark btn-outline-light mr-sm-2"
+            type="button"
+          >
+            Sign Up
+          </button>
+          <button className="btn btn-dark btn-outline-light" type="button">
+            Log In
+          </button>
+        </form>
+        <form className="form-inline">
+          <input
+            onChange={this.handleSearch}
+            value={props.value}
+            name="search"
+            type="text"
+            className="form-control mr-sm-2"
+            placeholder="Search"
+          />
+          <button
+            onClick={this.handleSubmit}
+            className="btn btn-outline-light my-2 my-sm-0"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+      </nav>
     );
   }
 }
