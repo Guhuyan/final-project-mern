@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Header from "../components/layout/Header";
+import Search from "../components/Search";
+import API from "../utils/nyTimesAPI";
+// import Stock from "../../utils/alphAvantageAPI";
+import SYMBOL from "../utils/yahooAPI";
 
-function pageRender(props) {
+function pageRender() {
   return (
     <div>
-      <Header />
-      <div class="card">
-        <div class="card-body">${this.state.search}</div>
-      </div>
+      <Search />
     </div>
   );
 }
