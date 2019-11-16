@@ -8,7 +8,7 @@ const passport = require("passport");
 const routes = require("./routes");
 const users = require("./routes/api/users");
 const app = express();
-const PORT = process.env.PORT || 3001;
+// const PORT = process.env.PORT || 3001;
 const db = require("./config/keys").mongoURI;
 
 // Bodyparser middleware
