@@ -8,7 +8,6 @@ const passport = require("passport");
 const routes = require("./routes");
 const users = require("./routes/api/users");
 const app = express();
-// const PORT = process.env.PORT || 3001;
 const db = require("./config/keys").mongoURI;
 
 // Bodyparser middleware
@@ -48,7 +47,7 @@ mongoose
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3001;
 
 // Start the API server
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
