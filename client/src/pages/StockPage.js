@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import Search from "../components/Search";
-import API from "../utils/nyTimesAPI";
+// import API from "../utils/nyTimesAPI";
 // import Stock from "../../utils/alphAvantageAPI";
-import SYMBOL from "../utils/yahooAPI";
+// import SYMBOL from "../utils/yahooAPI";
 
-function pageRender() {
-  return (
-    <div>
-      <Search />
-    </div>
-  );
+class StockPage extends Component {
+  state = {
+    company: []
+  };
+  render() {
+    console.log(this.state.company);
+    return (
+      <div>
+        <Search company={this.state.company} />
+      </div>
+    );
+  }
 }
-
-export default pageRender;
+export default StockPage;
