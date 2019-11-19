@@ -6,8 +6,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import NoMatch from "./pages/NoMatch";
 import Dashboard from "./pages/Dashboard";
-// import Graph from "./components/Graph";
-// import Search from "./pages/StockPage";
+import Search from "./pages/StockPage";
 
 class App extends Component {
   render() {
@@ -20,6 +19,7 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/search" component={Search} />
             <Route component={NoMatch} />
           </Switch>
         </div>
