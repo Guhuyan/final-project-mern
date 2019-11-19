@@ -13,7 +13,7 @@ router.route("/").get(function(req, res) {
   axios
     .get(BASEURL + q + SUBURL + APIKEY)
     .then(response => {
-      console.log(response.data);
+      //console.log(response.data);
       res.json(response.data);
     })
     .catch(function(error) {
