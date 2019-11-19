@@ -9,18 +9,10 @@ class MainHeader extends Component {
           Stock App
         </Link>
         <form className="form-inline">
-          <Link
-            to="/register"
-            className="btn btn-dark btn-outline-light mr-sm-2"
-            type="button"
-          >
+          <Link to="/register" className="btn btn-dark" type="button">
             Sign Up
           </Link>
-          <Link
-            to="/login"
-            className="btn btn-dark btn-outline-light"
-            type="button"
-          >
+          <Link to="/login" className="btn btn-dark" type="button">
             Log In
           </Link>
         </form>

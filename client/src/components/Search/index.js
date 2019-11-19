@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import API from "../../utils/nyTimesAPI";
 import Stock from "../../utils/alphAvantageAPI";
 import SYMBOL from "../../utils/yahooAPI";
@@ -10,10 +11,6 @@ class companySearch extends Component {
   //   result: {},
   //   search: ""
   // };
-
-  //   componentDidMount() {
-  //     this.searchSymbol();
-  //   }
 
   // searchSymbol = query => {
   //   SYMBOL.getSymbol(query)
@@ -63,7 +60,7 @@ class companySearch extends Component {
           <Link
             to="/search"
             onClick={this.props.submitHandler}
-            className="btn btn-outline-light my-2 my-sm-0"
+            className="btn btn-dark"
             type="submit"
           >
             Search
@@ -74,4 +71,5 @@ class companySearch extends Component {
     );
   }
 }
+
 export default companySearch;
