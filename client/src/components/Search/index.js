@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import API from "../../utils/nyTimesAPI";
 import Stock from "../../utils/alphAvantageAPI";
 import SYMBOL from "../../utils/yahooAPI";
+import Graph from "../../components/Graph";
 
 class companySearch extends Component {
   state = {
     result: {},
+    showGraph: false,
     search: ""
   };
 
@@ -44,29 +46,35 @@ class companySearch extends Component {
     event.preventDefault();
     this.searchSymbol(this.state.search);
     this.searchArticle(this.state.search);
+    this.setState({
+      showGraph: true
+    });
     // this.searchStock(this.state.search);
   };
 
   render() {
     return (
-      <form className="form-inline">
-        <input
-          onChange={this.handleSearch}
-          value={this.state.search}
-          name="search"
-          type="text"
-          className="form-control mr-sm-2"
-          placeholder="Search"
-        />
-        <Link
-          to="/search"
-          onClick={this.handleSubmit}
-          className="btn btn-outline-light my-2 my-sm-0"
-          type="submit"
-        >
-          Search
-        </Link>
-      </form>
+      <div>
+        <form className="form-inline">
+          <input
+            onChange={this.handleSearch}
+            value={this.state.search}
+            name="search"
+            type="text"
+            className="form-control mr-sm-2"
+            placeholder="Search"
+          />
+          <Link
+            to="/search"
+            onClick={this.handleSubmit}
+            className="btn btn-outline-light my-2 my-sm-0"
+            type="submit"
+          >
+            Search
+          </Link>
+        </form>
+        {this.state.showGraph ? <Graph /> : <p>Do a search</p>}
+      </div>
     );
   }
 }

@@ -8,17 +8,17 @@ export default class Graph extends Component {
 
     this.state = {
       data: {
-        labels: ["1", "2", "3", "4", "5"],
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
         datasets: [
           {
             label: "Label 1",
             backgroundColor: "rgba(0, 50, 255, 0.75)",
-            data: [4, 5, 1, 10, 32, 2, 12]
+            data: [4, 5, 1, 10, 32, 2, 12, 70, 2, 5, 55]
           },
           {
             label: "Label 2",
             backgroundColor: "rgba(255, 255, 255, 0.75)",
-            data: [24, 5, 21, 14, 32, 4, 12]
+            data: [24, 5, 21, 14, 32, 4, 12, 93, 45, 63]
           }
         ]
       }
