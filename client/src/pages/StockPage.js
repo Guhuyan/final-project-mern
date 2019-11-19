@@ -45,6 +45,7 @@ class StockPage extends Component {
     this.searchArticle(this.state.search);
     // this.searchStock(this.state.search);
   };
+
   render() {
     //console.log(this.props.result);
     return (

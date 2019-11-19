@@ -4,12 +4,14 @@ import API from "../../utils/nyTimesAPI";
 import Stock from "../../utils/alphAvantageAPI";
 import SYMBOL from "../../utils/yahooAPI";
 import StockPage from "../../pages/StockPage";
+import Graph from "../../components/Graph";
 
 class companySearch extends Component {
-  // state = {
-  //   result: {},
-  //   search: ""
-  // };
+  state = {
+    result: {},
+    showGraph: false,
+    search: ""
+  };
 
   //   componentDidMount() {
   //     this.searchSymbol();
@@ -41,20 +43,23 @@ class companySearch extends Component {
   //   });
   // };
 
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.searchSymbol(this.state.search);
-  //   this.searchArticle(this.state.search);
-  //   // this.searchStock(this.state.search);
-  // };
+  handleSubmit = event => {
+    event.preventDefault();
+    this.searchSymbol(this.state.search);
+    this.searchArticle(this.state.search);
+    this.setState({
+      showGraph: true
+    });
+    // this.searchStock(this.state.search);
+  };
 
   render() {
     return (
       <div>
         <form className="form-inline">
           <input
-            onChange={this.props.searchHandler}
-            value={this.props.company}
+            onChange={this.handleSearch}
+            value={this.state.search}
             name="search"
             type="text"
             className="form-control mr-sm-2"
@@ -62,14 +67,14 @@ class companySearch extends Component {
           />
           <Link
             to="/search"
-            onClick={this.props.submitHandler}
+            onClick={this.handleSubmit}
             className="btn btn-outline-light my-2 my-sm-0"
             type="submit"
           >
             Search
           </Link>
         </form>
-        {/* <StockPage company={this.state.result} /> */}
+        {this.state.showGraph ? <Graph /> : <p>Do a search</p>}
       </div>
     );
   }
