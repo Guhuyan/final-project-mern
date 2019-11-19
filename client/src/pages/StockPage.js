@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Search from "../components/Search";
 import API from "../utils/nyTimesAPI";
-//import Stock from "../../utils/alphAvantageAPI";
+import Stock from "../utils/alphAvantageAPI";
 import SYMBOL from "../utils/yahooAPI";
+// import Graph from "../components/Graph/index";
 
 class StockPage extends Component {
   state = {
@@ -10,12 +11,15 @@ class StockPage extends Component {
       summaryProfile: {}
     },
     article: {},
+    graph: {},
     search: ""
   };
 
   searchSymbol = query => {
     SYMBOL.getSymbol(query)
       .then(res => this.setState({ result: res.data }))
+      .then(res => this.searchArticle(this.state.search))
+      .then(res => this.searchStock(this.state.result.symbol))
       .catch(err => console.log(err));
   };
 
@@ -25,11 +29,11 @@ class StockPage extends Component {
       .catch(err => console.log(err));
   };
 
-  // searchStock = query => {
-  //   Stock.getStock(query)
-  //     .then(res => this.setState({ result: res.data }))
-  //     .catch(err => console.log(err));
-  // };
+  searchStock = query => {
+    Stock.getStock(query)
+      .then(res => this.setState({ graph: res.data }))
+      .catch(err => console.log(err));
+  };
 
   handleSearch = event => {
     const search = event.target.value;
@@ -42,12 +46,11 @@ class StockPage extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.searchSymbol(this.state.search);
-    this.searchArticle(this.state.search);
-    // this.searchStock(this.state.search);
+    // this.searchArticle(this.state.search);
+    // await this.searchStock(this.state.result.symbol);
   };
 
   render() {
-    //console.log(this.props.result);
     return (
       <div>
         <Search
@@ -55,6 +58,7 @@ class StockPage extends Component {
           searchHandler={this.handleSearch}
           submitHandler={this.handleSubmit}
         />
+        {/* <Graph graphData={this.state.graph} /> */}
         {this.state.result.summaryProfile.longBusinessSummary}
       </div>
     );
