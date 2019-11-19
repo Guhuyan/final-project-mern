@@ -9,7 +9,9 @@ const User = require("../../models/User"); // Load User model
 const userController = require("../../controllers/userController"); // Load User controller
 
 router.post("/register", (req, res) => {
-  // Form validationconst { errors, isValid } = validateRegisterInput(req.body);// Check validation
+  // Form validation
+  const { errors, isValid } = validateRegisterInput(req.body);
+
   if (!isValid) {
     return res.status(400).json(errors);
   }
@@ -37,7 +39,9 @@ router.post("/register", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  // Form validationconst { errors, isValid } = validateLoginInput(req.body);// Check validation
+  // Form validation
+  const { errors, isValid } = validateLoginInput(req.body);
+
   if (!isValid) {
     return res.status(400).json(errors);
   }

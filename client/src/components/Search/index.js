@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import API from "../../utils/nyTimesAPI";
 import Stock from "../../utils/alphAvantageAPI";
 import SYMBOL from "../../utils/yahooAPI";
+import StockPage from "../../pages/StockPage";
 import Graph from "../../components/Graph";
 
 class companySearch extends Component {
@@ -16,31 +17,31 @@ class companySearch extends Component {
   //     this.searchSymbol();
   //   }
 
-  searchSymbol = query => {
-    SYMBOL.getSymbol(query)
-      .then(res => this.setState({ result: res.data }))
-      .catch(err => console.log(err));
-  };
+  // searchSymbol = query => {
+  //   SYMBOL.getSymbol(query)
+  //     .then(res => this.setState({ result: res.data }))
+  //     .catch(err => console.log(err));
+  // };
 
-  searchArticle = query => {
-    API.getArticle(query)
-      .then(res => this.setState({ result: res.data }))
-      .catch(err => console.log(err));
-  };
+  // searchArticle = query => {
+  //   API.getArticle(query)
+  //     .then(res => this.setState({ result: res.data }))
+  //     .catch(err => console.log(err));
+  // };
 
-  searchStock = query => {
-    Stock.getStock(query)
-      .then(res => this.setState({ result: res.data }))
-      .catch(err => console.log(err));
-  };
+  // searchStock = query => {
+  //   Stock.getStock(query)
+  //     .then(res => this.setState({ result: res.data }))
+  //     .catch(err => console.log(err));
+  // };
 
-  handleSearch = event => {
-    const search = event.target.value;
-    const name = event.target.name;
-    this.setState({
-      [name]: search
-    });
-  };
+  // handleSearch = event => {
+  //   const search = event.target.value;
+  //   const name = event.target.name;
+  //   this.setState({
+  //     [name]: search
+  //   });
+  // };
 
   handleSubmit = event => {
     event.preventDefault();
