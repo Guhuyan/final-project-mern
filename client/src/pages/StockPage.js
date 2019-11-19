@@ -3,6 +3,7 @@ import Search from "../components/Search";
 import API from "../utils/nyTimesAPI";
 import Stock from "../utils/alphAvantageAPI";
 import SYMBOL from "../utils/yahooAPI";
+import Graph from "../components/Graph";
 // import Graph from "../components/Graph/index";
 
 class StockPage extends Component {
@@ -12,6 +13,7 @@ class StockPage extends Component {
     },
     article: {},
     graph: {},
+    showGraph: false,
     search: ""
   };
 
@@ -46,6 +48,9 @@ class StockPage extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.searchSymbol(this.state.search);
+    this.setState({
+      showGraph: true
+    });
     // this.searchArticle(this.state.search);
     // await this.searchStock(this.state.result.symbol);
   };
@@ -58,7 +63,7 @@ class StockPage extends Component {
           searchHandler={this.handleSearch}
           submitHandler={this.handleSubmit}
         />
-        {/* <Graph graphData={this.state.graph} /> */}
+        {this.state.showGraph ? <Graph /> : <p> </p>}
         {this.state.result.summaryProfile.longBusinessSummary}
       </div>
     );
