@@ -15,6 +15,7 @@ import NoMatch from "./pages/NoMatch";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "./pages/Dashboard";
 import Search from "./components/Search";
+import Search from "./pages/StockPage";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {

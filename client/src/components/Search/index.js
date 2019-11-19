@@ -66,7 +66,6 @@ class companySearch extends Component {
             Search
           </Link>
         </form>
-        {/* <StockPage company={this.state.result} /> */}
       </div>
     );
   }
