@@ -10,7 +10,7 @@ import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./components/layout/Header";
-import DashboardHeader from "./components/layout/DashboardHeader";
+import DashboardHeader from "./components/layout/Header";
 import AboutUs from "./components/AboutUs";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -45,7 +45,6 @@ class App extends Component {
         <Router>
           <div>
             <Header />
-            <DashboardHeader />
             <Switch>
               <Route exact path="/" component={AboutUs} />
               <Route exact path="/register" component={Register} />
