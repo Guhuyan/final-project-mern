@@ -4,15 +4,18 @@ import API from "../utils/nyTimesAPI";
 import Stock from "../utils/alphAvantageAPI";
 import SYMBOL from "../utils/yahooAPI";
 import Graph from "../components/Graph";
+import Page from "../components/Page/index";
 // import Graph from "../components/Graph/index";
 
 class StockPage extends Component {
   state = {
     result: {
+      symbol: "",
       summaryProfile: {}
     },
     article: {},
     graph: {},
+    showPage: false,
     showGraph: false,
     search: ""
   };
@@ -27,7 +30,11 @@ class StockPage extends Component {
 
   searchArticle = query => {
     API.getArticle(query)
-      .then(res => this.setState({ article: res.data }))
+
+      .then(res => {
+        console.log(res.data);
+        this.setState({ article: res.data });
+      })
       .catch(err => console.log(err));
   };
 
@@ -49,7 +56,8 @@ class StockPage extends Component {
     event.preventDefault();
     this.searchSymbol(this.state.search);
     this.setState({
-      showGraph: true
+      showGraph: true,
+      showPage: true
     });
     // this.searchArticle(this.state.search);
     // await this.searchStock(this.state.result.symbol);
@@ -63,8 +71,17 @@ class StockPage extends Component {
           searchHandler={this.handleSearch}
           submitHandler={this.handleSubmit}
         />
-        {this.state.showGraph ? <Graph /> : <p> </p>}
-        {this.state.result.summaryProfile.longBusinessSummary}
+        {this.state.showGraph ? <Graph data={this.state.graph} /> : ""}
+        {this.state.showPage ? (
+          <Page
+            symbol={this.state.result.symbol}
+            data={this.state.result.summaryProfile}
+            name={this.state.search}
+            newsArticle={this.state.article.docs}
+          />
+        ) : (
+          ""
+        )}
       </div>
     );
   }
