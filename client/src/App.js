@@ -7,7 +7,10 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import Header from "./components/layout/Header";
+import DashboardHeader from "./components/layout/Header";
 import AboutUs from "./components/AboutUs";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -47,7 +50,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <Route exact path="/search" component={Search} />
+              <PrivateRoute exact path="/search" component={Search} />
               <Route component={NoMatch} />
             </Switch>
           </div>
