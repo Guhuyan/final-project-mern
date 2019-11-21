@@ -5,7 +5,6 @@ import Stock from "../utils/alphAvantageAPI";
 import SYMBOL from "../utils/yahooAPI";
 import Graph from "../components/Graph";
 import Page from "../components/Page/index";
-// import Graph from "../components/Graph/index";
 
 class StockPage extends Component {
   state = {
@@ -59,8 +58,6 @@ class StockPage extends Component {
       showGraph: true,
       showPage: true
     });
-    // this.searchArticle(this.state.search);
-    // await this.searchStock(this.state.result.symbol);
   };
 
   render() {

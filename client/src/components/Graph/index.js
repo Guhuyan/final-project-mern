@@ -54,7 +54,7 @@ export default class Graph extends Component {
 
   render() {
     return (
-      <div style={{ position: "relative", width: 600, height: 550 }}>
+      <div style={{ position: "relative", width: 1000, height: 550 }}>
         <h3> Sample Graphy </h3>
         <Line
           options={{
