@@ -2,8 +2,10 @@ import React, { Component } from "react";
 
 export default class index extends Component {
   render() {
-    const article = this.props.newsArticle;
-    console.log(article);
+    const abstract =
+      this.props.newsArticle && this.props.newsArticle[0]
+        ? this.props.newsArticle[0].abstract
+        : null;
     return (
       <div>
         <div className="card">
@@ -18,7 +20,7 @@ export default class index extends Component {
         </div>
         <div class="card">
           {/* {article} */}
-          {/* <div class="card-body">{this.props.newsArticle.abstract}</div> */}
+          <div class="card-body">{abstract}</div>
         </div>
       </div>
     );
