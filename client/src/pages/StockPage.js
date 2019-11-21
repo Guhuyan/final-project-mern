@@ -64,6 +64,11 @@ class StockPage extends Component {
   };
 
   render() {
+    const doc =
+      this.state.article && this.state.article.docs
+        ? this.state.article.docs
+        : null;
+    console.log(doc);
     return (
       <div>
         <Search
@@ -77,7 +82,7 @@ class StockPage extends Component {
             symbol={this.state.result.symbol}
             data={this.state.result.summaryProfile}
             name={this.state.search}
-            newsArticle={this.state.article.docs}
+            newsArticle={doc}
           />
         ) : (
           ""
