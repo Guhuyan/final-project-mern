@@ -6,25 +6,29 @@ export default class Graph extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      data: {
-        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-        datasets: [
-          {
-            label: "Label 1",
-            backgroundColor: "rgba(0, 50, 255, 0.75)",
-            data: [4, 5, 1, 10, 32, 2, 12, 70, 2, 5, 55]
-          },
-          {
-            label: "Label 2",
-            backgroundColor: "rgba(255, 255, 255, 0.75)",
-            data: [24, 5, 21, 14, 32, 4, 12, 93, 45, 63]
-          }
-        ]
-      }
-    };
+    // this.state = {
+    //   data: {
+    //     labels: [intervals],
+    //     // labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
+    //     datasets: [
+    //       {
+    //         label: "Label 1",
+    //         backgroundColor: "rgba(0, 50, 255, 0.75)",
+    //         data: [4, 5, 1, 10, 32, 2, 12, 70, 2, 5, 55]
+    //       },
+    //       {
+    //         label: "Label 2",
+    //         backgroundColor: "rgba(255, 255, 255, 0.75)",
+    //         data: [24, 5, 21, 14, 32, 4, 12, 93, 45, 63]
+    //       }
+    //     ]
+    //   }
+    // };
   }
 
+  componentDidMount() {
+    this.getChartData();
+  }
   // Documentation for below found at:
   // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/createLinearGradient
 
@@ -39,22 +43,33 @@ export default class Graph extends Component {
   };
 
   getChartData = canvas => {
-    const data = this.state.data;
-    if (data.datasets) {
-      let colors = ["rgba(0, 50, 255, 0.75)", "rgba(255, 255, 255, 0.75)"];
-      data.datasets.forEach((set, i) => {
-        set.backgroundColor = this.setGradientColor(canvas, colors[i]);
-        set.borderColor = "black";
-        set.borderWidth = 0.5;
-        set.lineTension = 0;
-      });
-    }
-    return data;
+    const intervals = [this.props.dataGraph["Time Series (5min)"]];
+    console.log(intervals);
+    const highs = intervals.map(interval => {
+      // return interval["1. open"]
+      console.log(interval);
+    });
+    // const lows = intervals.map(interval => {
+    //   return Math.round(interval["3. low"]);
+    // });
+    // const data = this.state.data;
+    // if (highs) {
+    //   let colors = ["rgba(0, 50, 255, 0.75)", "rgba(255, 255, 255, 0.75)"];
+    //   highs.forEach((set, i) => {
+    //     set.backgroundColor = this.setGradientColor(canvas, colors[i]);
+    //     set.borderColor = "black";
+    //     set.borderWidth = 0.5;
+    //     set.lineTension = 0;
+    //   });
+    // }
+    return highs;
   };
 
   render() {
+    //console.log(this.props.dataGraph);
     return (
-      <div style={{ position: "relative", width: 600, height: 550 }}>
+      // <div>I Rendered</div>
+      <div style={{ position: "relative", width: 1000, height: 550 }}>
         <h3> Sample Graphy </h3>
         <Line
           options={{
