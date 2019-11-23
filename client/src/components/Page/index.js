@@ -15,18 +15,17 @@ export default class index extends Component {
         <div className="card">
           <div className="card-body">
             <h1>{this.props.name}</h1>
-            <h5>{this.props.symbol}</h5>
-            <h5>
+            <h6>{this.props.symbol}</h6>
+            <h6>Employees: {this.props.data.fullTimeEmployees}</h6>
+            <h6>
               {this.props.data.city}, {this.props.data.state}
-            </h5>
+            </h6>
             <p>{this.props.data.longBusinessSummary}</p>
           </div>
         </div>
         <div className="card">
           {/* {article} */}
-          <div className="card-body" href={url}>
-            {abstract}
-          </div>
+          <div className="card-body">{abstract}</div>
         </div>
       </div>
     );

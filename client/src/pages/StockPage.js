@@ -13,7 +13,7 @@ class StockPage extends Component {
       summaryProfile: {}
     },
     article: {},
-    graph: {},
+    graph: false,
     showPage: false,
     showGraph: false,
     search: ""
@@ -31,7 +31,7 @@ class StockPage extends Component {
     API.getArticle(query)
 
       .then(res => {
-        console.log(res.data);
+        //console.log(res.data);
         this.setState({ article: res.data });
       })
       .catch(err => console.log(err));
@@ -39,7 +39,9 @@ class StockPage extends Component {
 
   searchStock = query => {
     Stock.getStock(query)
-      .then(res => this.setState({ graph: res.data }))
+      .then(res => {
+        this.setState({ graph: res.data });
+      })
       .catch(err => console.log(err));
   };
 
@@ -65,7 +67,6 @@ class StockPage extends Component {
       this.state.article && this.state.article.docs
         ? this.state.article.docs
         : null;
-    console.log(doc);
     return (
       <div>
         <Search
@@ -73,7 +74,11 @@ class StockPage extends Component {
           searchHandler={this.handleSearch}
           submitHandler={this.handleSubmit}
         />
-        {this.state.showGraph ? <Graph data={this.state.graph} /> : ""}
+        {this.state.graph && this.state.showGraph ? (
+          <Graph dataGraph={this.state.graph} />
+        ) : (
+          ""
+        )}
         {this.state.showPage ? (
           <Page
             symbol={this.state.result.symbol}
