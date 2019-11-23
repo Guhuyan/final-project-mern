@@ -1,7 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-//const session = require("express-session");
-
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -11,28 +9,18 @@ const app = express();
 const db = require("./config/keys").mongoURI;
 
 // Bodyparser middleware
+app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
     extended: false
   })
 );
-app.use(bodyParser.json());
 
-// Setting up session
-// app.use(
-//   session({
-//     secret: process.env.EXPRESS_SESSION_SECRET,
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: { maxAge: 1000 * 60 * 60 * 24, httpOnly: true }
-//   })
-// );
-
-// Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, "client/build"))); // Handle React routing, return all requests to React app
+  app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
 
