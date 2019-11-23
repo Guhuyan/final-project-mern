@@ -1,10 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import API from "../../utils/nyTimesAPI";
-import Stock from "../../utils/alphAvantageAPI";
-import SYMBOL from "../../utils/yahooAPI";
-import StockPage from "../../pages/StockPage";
 
 class companySearch extends Component {
   // state = {
