@@ -31,7 +31,6 @@ class StockPage extends Component {
     API.getArticle(query)
 
       .then(res => {
-        //console.log(res.data);
         this.setState({ article: res.data });
       })
       .catch(err => console.log(err));
