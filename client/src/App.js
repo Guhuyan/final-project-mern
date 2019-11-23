@@ -10,7 +10,7 @@ import store from "./store";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Header from "./components/layout/Header";
-//import DashboardHeader from "./components/layout/Header";
+
 import AboutUs from "./components/AboutUs";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
