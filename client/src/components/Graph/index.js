@@ -3,29 +3,6 @@ import { Line } from "react-chartjs-2";
 import "chartjs-plugin-lineheight-annotation";
 
 export default class Graph extends Component {
-  constructor(props) {
-    super(props);
-
-    // this.state = {
-    //   data: {
-    //     labels: [intervals],
-    //     // labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
-    //     datasets: [
-    //       {
-    //         label: "Label 1",
-    //         backgroundColor: "rgba(0, 50, 255, 0.75)",
-    //         data: [4, 5, 1, 10, 32, 2, 12, 70, 2, 5, 55]
-    //       },
-    //       {
-    //         label: "Label 2",
-    //         backgroundColor: "rgba(255, 255, 255, 0.75)",
-    //         data: [24, 5, 21, 14, 32, 4, 12, 93, 45, 63]
-    //       }
-    //     ]
-    //   }
-    // };
-  }
-
   componentDidMount() {
     this.getChartData();
   }
@@ -66,9 +43,7 @@ export default class Graph extends Component {
   };
 
   render() {
-    //console.log(this.props.dataGraph);
     return (
-      // <div>I Rendered</div>
       <div style={{ position: "relative", width: 1000, height: 550 }}>
         <h3> Sample Graphy </h3>
         <Line
