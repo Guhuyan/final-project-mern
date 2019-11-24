@@ -27,18 +27,25 @@ app.use(routes);
 
 const port = process.env.PORT || 3001;
 
-if (process.env.NODE_ENV === "production") {
-  app.use("/static", express.static(path.join(__dirname, "client/build"))); // Handle React routing, return all requests to React app
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build", "index.html"));
-  });
-}
-
 // Connect to MongoDB
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use("/static", express.static(path.join(__dirname, "client/build"))); // Handle React routing, return all requests to React app
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "client/build", "index.html"));
+//   });
+// }
+
+// Handle React routing, return all requests to React app
+app.use("/static", express.static(path.join(__dirname, "client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 // Start the API server
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
