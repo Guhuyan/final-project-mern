@@ -16,7 +16,7 @@
   "engines": {
     "node": "10.15.3"
   },
-  "author": "",
+  "author": "Billy Bright, Carl Medina, and Gue H. Yang",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.2",
