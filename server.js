@@ -33,29 +33,10 @@ mongoose
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
 
-// if (process.env.NODE_ENV === "production") {
-//   app.use("/static", express.static(path.join(__dirname, "client/build"))); // Handle React routing, return all requests to React app
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "client/build", "index.html"));
-//   });8
-// }
-
-// Handle React routing, return all requests to React app
-// app.use("/static", express.static(path.join(__dirname, "client/build")));
-
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-// });
-
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/build")));
-  app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "./client/build/index.html"));
-  });
-} else {
-  app.use(express.static(path.join(__dirname, "/client/public")));
-  app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  app.use("/static", express.static(path.join(__dirname, "client/build"))); // Handle React routing, return all requests to React app
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
 
