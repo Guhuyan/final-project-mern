@@ -6,7 +6,6 @@ const keys = require("../../config/keys");
 const validateRegisterInput = require("../../validation/register"); // Load input validation
 const validateLoginInput = require("../../validation/login"); // Load login validation
 const User = require("../../models/User"); // Load User model
-const userController = require("../../controllers/userController"); // Load User controller
 
 router.post("/register", (req, res) => {
   // Form validation
@@ -59,7 +58,7 @@ router.post("/login", (req, res) => {
         const payload = {
           id: user.id,
           name: user.name
-        }; // Sign token
+        };
         jwt.sign(
           payload,
           keys.secretOrKey,
@@ -76,7 +75,7 @@ router.post("/login", (req, res) => {
       } else {
         return res
           .status(400)
-          .json({ passwordincorrect: "Password incorrect" });
+          .json({ passwordincorrect: "Incorrect password" });
       }
     });
   });

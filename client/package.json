@@ -1,5 +1,6 @@
 {
   "name": "final-project-mern",
+  "homepage": "https://lit-beyond-43796.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,13 +18,13 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },
-  "proxy": "http://localhost:3001/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:3001/",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -57,6 +58,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Guhuyan/final-project-mern/issues"
-  },
-  "homepage": "https://github.com/Guhuyan/final-project-mern#readme"
+  }
 }

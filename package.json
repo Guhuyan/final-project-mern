@@ -11,9 +11,12 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm run build"
   },
-  "author": "",
+  "engines": {
+    "node": "10.15.3"
+  },
+  "author": "Billy Bright, Carl Medina, and Gue H. Yang",
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.2",
