@@ -1,5 +1,6 @@
 {
   "name": "mern",
+  "homepage": "https://lit-beyond-43796.herokuapp.com/",
   "version": "1.0.0",
   "description": "Mern Project",
   "main": "server.js",
