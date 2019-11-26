@@ -43,7 +43,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">
-          Stock App
+          Mrn3 Financial
         </Link>
         <form className="form-inline">
           {button1}
