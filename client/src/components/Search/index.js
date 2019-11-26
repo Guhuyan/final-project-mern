@@ -2,44 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class companySearch extends Component {
-  // state = {
-  //   result: {},
-  //   search: ""
-  // };
-
-  // searchSymbol = query => {
-  //   SYMBOL.getSymbol(query)
-  //     .then(res => this.setState({ result: res.data }))
-  //     .catch(err => console.log(err));
-  // };
-
-  // searchArticle = query => {
-  //   API.getArticle(query)
-  //     .then(res => this.setState({ result: res.data }))
-  //     .catch(err => console.log(err));
-  // };
-
-  // searchStock = query => {
-  //   Stock.getStock(query)
-  //     .then(res => this.setState({ result: res.data }))
-  //     .catch(err => console.log(err));
-  // };
-
-  // handleSearch = event => {
-  //   const search = event.target.value;
-  //   const name = event.target.name;
-  //   this.setState({
-  //     [name]: search
-  //   });
-  // };
-
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   this.searchSymbol(this.state.search);
-  //   this.searchArticle(this.state.search);
-  //   // this.searchStock(this.state.search);
-  // };
-
   render() {
     return (
       <div>
