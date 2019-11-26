@@ -5,7 +5,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const routes = require("./routes");
-const users = require("./routes/api/users");
+// const users = require("./routes/api/users");
 const app = express();
 const db = require("./config/keys").mongoURI;
 
@@ -20,7 +20,7 @@ app.use(
 // Passport middleware
 app.use(passport.initialize()); // Passport config
 require("./config/passport")(passport); // Routes
-app.use("/api/users", users);
+// app.use("/api/users", users);
 
 // Add routes, both API and view
 app.use(routes);
