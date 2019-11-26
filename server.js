@@ -5,7 +5,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const routes = require("./routes");
-// const users = require("./routes/api/users");
+const users = require("./routes/api/users");
 const app = express();
 const db = require("./config/keys").mongoURI;
 
