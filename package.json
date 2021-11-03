@@ -44,6 +44,6 @@
     "react-bootstrap": "^1.0.0-beta.16",
     "react-chartjs-2": "^2.8.0",
     "react-router-dom": "^5.1.2",
-    "validator": "^12.0.0"
+    "validator": "^13.7.0"
   }
 }
